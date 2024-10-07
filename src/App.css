@@ -1,0 +1,137 @@
+/* Estilo geral (modo claro por padrão) */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0f8ff, #ffffff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  transition: background 0.5s ease, color 0.5s ease;
+  padding-top: 20px; /* Para evitar corte */
+}
+
+.App {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  width: 100%;
+  margin-top: 270px; /* Para melhor espaçamento */
+  min-height: 80vh; /* Ajustado para evitar corte */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+}
+
+/* Efeito de gradiente animado */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.animated-gradient-text {
+  background: linear-gradient(45deg, #7491bb, #0000ff, #00ffff); /* Cores de água */
+  background-size: 400% 400%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientAnimation 8s ease infinite; /* Aplicando a animação */
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* Cabeçalho com botão */
+.App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.toggle-theme-button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background-color: #e5e7eb;
+  color: black;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.toggle-theme-button:hover {
+  transform: scale(1.05);
+}
+
+.toggle-theme-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-theme-button.dark-mode {
+  background-color: #4b5563;
+  color: white;
+}
+
+.toggle-theme-button.light-mode {
+  background-color: #e5e7eb;
+  color: black;
+}
+
+/* Estilo do modo escuro */
+body.dark-mode {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #ecf0f1;
+}
+
+body.dark-mode .App {
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+body.dark-mode .toggle-theme-button {
+  background-color: #34495e;
+  color: white;
+}
+
+body.dark-mode .toggle-theme-button:hover {
+  background-color: #2c3e50;
+}
+
+.info-card, .clock, .monthly-cost {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Transição de transform */
+}
+
+.info-card:hover, .clock:hover, .monthly-cost:hover {
+  transform: scale(1.05); /* Efeito de zoom */
+}
+
+body.dark-mode .info-card, body.dark-mode .clock, body.dark-mode .monthly-cost {
+  background: #2c3e50;
+  color: #ecf0f1;
+}
