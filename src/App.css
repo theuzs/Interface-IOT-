@@ -2,14 +2,14 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f0f8ff, #ffffff);
-  height: 100vh;
+  background: linear-gradient(135deg, #72adff, #76bddf, #75ffff); /* Cores de água */
+  animation: gradientAnimation 8s ease infinite; /* Aplicando a animação */
   display: flex;
+
   justify-content: center;
   align-items: center;
   color: #333;
   transition: background 0.5s ease, color 0.5s ease;
-  padding-top: 20px; /* Para evitar corte */
 }
 
 .App {
@@ -18,10 +18,13 @@ body {
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  max-width: 90%;
+  max-width: 85%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
   width: 100%;
-  margin-top: 270px; /* Para melhor espaçamento */
-  min-height: 80vh; /* Ajustado para evitar corte */
+  min-height: 80vh; /* Garante que cubra pelo menos 80% da altura */
   display: flex;
   flex-direction: column;
   justify-content: center; /* Centraliza verticalmente */
@@ -41,7 +44,7 @@ body {
 }
 
 .animated-gradient-text {
-  background: linear-gradient(45deg, #7491bb, #0000ff, #00ffff); /* Cores de água */
+  background: linear-gradient(45deg, #7491bb, #00aeff, #00ffff); /* Cores de água */
   background-size: 400% 400%;
   color: transparent;
   -webkit-background-clip: text;
@@ -101,7 +104,9 @@ h1 {
 
 /* Estilo do modo escuro */
 body.dark-mode {
-  background: linear-gradient(135deg, #2c3e50, #34495e);
+  background: linear-gradient(135deg, #7491bb, #001e5e, #34495e);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
   color: #ecf0f1;
 }
 
@@ -124,11 +129,11 @@ body.dark-mode .toggle-theme-button:hover {
   border-radius: 15px;
   margin-bottom: 20px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Transição de transform */
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .info-card:hover, .clock:hover, .monthly-cost:hover {
-  transform: scale(1.05); /* Efeito de zoom */
+  transform: scale(1.05); 
 }
 
 body.dark-mode .info-card, body.dark-mode .clock, body.dark-mode .monthly-cost {
