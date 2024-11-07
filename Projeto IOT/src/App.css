@@ -3,9 +3,9 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #72adff, #76bddf, #75ffff); /* Cores de água */
-  animation: gradientAnimation 8s ease infinite; /* Aplicando a animação */
+  background-size: 300% 300%; /* Aumenta o efeito de gradiente */
+  animation: gradientAnimationLight 12s ease infinite; /* Animação mais suave */
   display: flex;
-
   justify-content: center;
   align-items: center;
   color: #333;
@@ -17,39 +17,41 @@ body {
   background-color: rgba(255, 255, 255, 0.95);
   padding: 30px;
   border-radius: 20px;
+  border: 3px solid #3498db; /* Borda azul no modo claro */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  max-width: 85%;
+  max-width: 77%;
   margin-top: 25px;
   margin-bottom: 25px;
   margin-left: 25px;
   margin-right: 25px;
   width: 100%;
-  min-height: 80vh; /* Garante que cubra pelo menos 80% da altura */
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centraliza verticalmente */
+  justify-content: center;
+  transition: border-color 0.5s ease, color 0.5s ease; /* Animação suave para a transição */
 }
 
-/* Efeito de gradiente animado */
-@keyframes gradientAnimation {
+/* Efeito de gradiente animado para o modo claro */
+@keyframes gradientAnimationLight {
   0% {
-    background-position: 0% 0%;
+    background-position: 0% 50%;
   }
   50% {
-    background-position: 100% 100%;
+    background-position: 100% 50%;
   }
   100% {
-    background-position: 0% 0%;
+    background-position: 0% 50%;
   }
 }
 
 .animated-gradient-text {
-  background: linear-gradient(45deg, #7491bb, #00aeff, #00ffff); /* Cores de água */
+  background: linear-gradient(45deg, #7491bb, #00aeff, #00ffff);
   background-size: 400% 400%;
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: gradientAnimation 8s ease infinite; /* Aplicando a animação */
+  animation: gradientAnimationLight 8s ease infinite;
 }
 
 h1 {
@@ -76,11 +78,11 @@ h1 {
   align-items: center;
   padding: 10px 20px;
   border-radius: 30px;
-  border: none;
+  border: 2px solid #3498db; /* Borda azul no modo claro */
   cursor: pointer;
   background-color: #e5e7eb;
   color: black;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 .toggle-theme-button:hover {
@@ -92,51 +94,148 @@ h1 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.toggle-theme-button.dark-mode {
-  background-color: #4b5563;
-  color: white;
-}
-
-.toggle-theme-button.light-mode {
-  background-color: #e5e7eb;
-  color: black;
-}
-
-/* Estilo do modo escuro */
+/* Estilo para modo escuro */
 body.dark-mode {
-  background: linear-gradient(135deg, #7491bb, #001e5e, #34495e);
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s ease infinite;
+  background: linear-gradient(135deg, #0a2f66, #001e5e, #1c4966); /* Cores mais escuras e frias */
+  background-size: 300% 300%;
+  animation: gradientAnimationDark 12s ease infinite;
   color: #ecf0f1;
 }
 
 body.dark-mode .App {
   background-color: rgba(50, 50, 50, 0.9);
+  border: 3px solid #0a2f66; /* Borda no modo escuro */
 }
 
 body.dark-mode .toggle-theme-button {
-  background-color: #34495e;
-  color: white;
+  border: 2px solid #0a2f66; /*  no modo escuro */
 }
 
 body.dark-mode .toggle-theme-button:hover {
   background-color: #2c3e50;
 }
 
+/* Efeito de gradiente animado para o modo escuro */
+@keyframes gradientAnimationDark {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Estilo dos cartões (modo claro) */
 .info-card, .clock, .monthly-cost {
   background: #fff;
   padding: 20px;
   border-radius: 15px;
+  border: 2px solid #95a5a6; /* Borda cinza no modo claro */
   margin-bottom: 20px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Estilo dos cartões (modo escuro) */
+body.dark-mode .info-card, body.dark-mode .clock, body.dark-mode .monthly-cost {
+  background: #2c3e50;
+  border: 2px solid #0a2f66; /* Borda laranja no modo escuro */
+  color: #ecf0f1;
 }
 
 .info-card:hover, .clock:hover, .monthly-cost:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 
-body.dark-mode .info-card, body.dark-mode .clock, body.dark-mode .monthly-cost {
-  background: #2c3e50;
-  color: #ecf0f1;
+/* Responsividade */
+@media (max-width: 768px) {
+  .App {
+    padding: 15px;
+    min-height: 90vh;
+  }
+  .App-header {
+    flex-direction: column;
+  }
+  .content {
+    flex-direction: column;
+  }
+}
+
+.info-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #95a5a6; /* Borda cinza no modo claro */
+  margin-bottom: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens na direção do eixo principal */
+}
+
+/* Estilo dos textos dentro do info-card */
+.info-card p {
+  margin: 5px 0; /* Margem entre os parágrafos */
+  font-size: 1.2rem; /* Aumenta o tamanho da fonte */
+  color: #333; /* Cor do texto no modo claro */
+  display: flex;
+  align-items: center; /* Alinha verticalmente o ícone com o texto */
+  justify-content: center; /* Centraliza o texto horizontalmente */
+}
+
+.info-card span {
+  font-weight: bold; /* Deixa os valores em negrito */
+  color: #3498db; /* Cor do texto dos valores */
+  margin-right: 5px; /* Adiciona espaço entre o valor e o ícone */
+}
+
+body.dark-mode .info-card p {
+  color: #ecf0f1; /* Cor do texto no modo escuro */
+}
+
+body.dark-mode .info-card span {
+  color: #f19e55; /* Cor dos valores no modo escuro */
+}
+
+/* Estilo do relógio */
+.clock {
+  font-size: 1.5rem; /* Aumenta o tamanho da fonte do relógio */
+  color: #3498db; /* Cor do texto do relógio no modo claro */
+}
+
+body.dark-mode .clock {
+  color: #fabf8b; /* Cor do texto do relógio no modo escuro */
+}
+
+.monthly-cost {
+  text-align: center; /* Centraliza o conteúdo */
+  margin-top: 20px; /* Espaço acima do custo mensal */
+  font-size: 2rem; /* Tamanho da fonte para o custo mensal */
+  font-weight: bold; /* Negrito para destacar o custo */
+  color: #3498db; /* Cor inicial do texto */
+  transition: transform 0.5s ease, color 0.5s ease; /* Transições suaves */
+}
+
+.monthly-cost p {
+  display: inline-block; /* Permite aplicar animação apenas ao texto */
+  animation: float 2s infinite; /* Aplica animação de flutuação */
+}
+
+/* Define a animação de flutuação */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0); /* Posição inicial e final */
+  }
+  50% {
+    transform: translateY(-10px); /* Levanta o texto no meio da animação */
+  }
+}
+
+/* Estilo do texto no modo escuro */
+body.dark-mode .monthly-cost {
+  color: #e67e22; /* Cor do texto no modo escuro */
 }
